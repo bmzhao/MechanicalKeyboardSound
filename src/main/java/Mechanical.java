@@ -4,7 +4,7 @@ import org.jnativehook.NativeHookException;
 import org.jnativehook.keyboard.NativeKeyEvent;
 import org.jnativehook.keyboard.NativeKeyListener;
 
-import java.io.FileInputStream;
+import java.io.InputStream;
 
 public class Mechanical {
 
@@ -33,8 +33,8 @@ public class Mechanical {
                     }
                 } else {
                     try {
-                        FileInputStream fis = new FileInputStream("key.mp3");
-                        Player playMP3 = new Player(fis);
+                        InputStream in = this.getClass().getResourceAsStream("key.mp3");
+                        Player playMP3 = new Player(in);
                         playMP3.play(10);
                     } catch (Exception e1) {
                         e1.printStackTrace();
